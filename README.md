@@ -93,12 +93,12 @@ If no `ngx-table-column` components are specified, all the fields in the data wi
 
 ---
 
-## NgxTableColumnComponent
+## `NgxTableColumnComponent`
 
 ### Selector
 
 ```html
-<ngx-table-component></ngx-table-component>
+<ngx-table-column></ngx-table-column>
 ```
 
 ### Inputs
