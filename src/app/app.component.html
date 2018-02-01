@@ -1,10 +1,15 @@
 <div class="container-fluid">
-    <ngx-table [data]="data.clients">
-        <ngx-table-column field="name" title="Name">
-        </ngx-table-column>
-        <ngx-table-column field="gender" title="Gender">
-        </ngx-table-column>
-        <ngx-table-column field="company" title="Company">
-        </ngx-table-column>
-    </ngx-table>
+    <div class="col-sm-12" *ngIf="lastSelected">
+        Last selected: {{ lastSelected.name }}
+    </div>
+    <div class="col-sm-12">
+        <ngx-table [data]="data.clients" (rowClick)="onRowClick($event)">
+            <ngx-table-column field="name" title="Name">
+            </ngx-table-column>
+            <ngx-table-column field="gender" title="Gender">
+            </ngx-table-column>
+            <ngx-table-column field="company" title="Company">
+            </ngx-table-column>
+        </ngx-table>
+    </div>
 </div>
