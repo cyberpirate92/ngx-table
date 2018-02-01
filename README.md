@@ -89,7 +89,7 @@ If no `ngx-table-column` components are specified, all the fields in the data wi
 
 ### Outputs
 
-- `rowClick:` [`RowClickEvent`](#row-click-event) - When a row is clicked in the table, a [`RowClickEvent`]((#row-click-event)) object is emitted.
+- `rowClick:` [`RowClickEvent`](#rowclickevent) - When a row is clicked in the table, a [`RowClickEvent`](#rowclickevent) object is emitted.
 
 ---
 
