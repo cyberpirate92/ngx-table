@@ -71,3 +71,64 @@ The `ngx-table-column` component can be used to specify the order of columns to 
 `field` is the object property that should be displayed in that column, `title` is optional and can be used to specify an alternate column name. If `title` is not provided, the column name will be the value of `field`.
 
 If no `ngx-table-column` components are specified, all the fields in the data will be rendered as columns.
+
+---
+
+## `NgxTableComponent`
+
+### Selector
+
+```html
+  <ngx-table></ngx-table>
+```
+
+### Inputs
+
+- `data: any[]` - the data to be displayed in the table
+- `noRecords: string` - _optional_ text to display when there are no records present, default text is `No Records`.
+
+### Outputs
+
+- `rowClick:` [`RowClickEvent`](#row-click-event) - When a row is clicked in the table, a [`RowClickEvent`]((#row-click-event)) object is emitted.
+
+---
+
+## NgxTableColumnComponent
+
+### Selector
+
+```html
+<ngx-table-component></ngx-table-component>
+```
+
+### Inputs
+
+- `field: string` - The object property that is to be bound to this column. 
+
+- `title: string` - _optional_ text to be displayed in this column header. When no `title` is provided, `field` is used as the column header.
+
+### Outputs
+
+_`NgxTableColumnComponent` doesn't have any outputs_
+
+---
+
+## Misc
+
+### `RowClickEvent`
+
+Emitted when a row is clicked in the table.
+
+```typescript
+{
+    rowIndex: number;
+    dataItem: any;
+    originalEvent: any;
+}
+```
+
+- `rowIndex` represents the 0 based index of the clicked row.
+- `dataItem` contains the data item pertaining to the clicked row.
+- `originalEvent` contains the original `click` event object.
+
+---
