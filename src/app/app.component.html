@@ -1,9 +1,12 @@
 <div class="container-fluid">
-    <div class="col-sm-12" *ngIf="lastSelected">
+    <div class="col-sm-12 p-2" *ngIf="lastSelected">
         Last selected: {{ lastSelected.name }}
     </div>
     <div class="col-sm-12">
-        <ngx-table [data]="data.clients" (rowClick)="onRowClick($event)">
+        <ngx-table 
+            [data]="data.clients" 
+            noRecords="No data present :)" 
+            (rowClick)="onRowClick($event)">
             <ngx-table-column field="name" title="Name">
             </ngx-table-column>
             <ngx-table-column field="gender" title="Gender">

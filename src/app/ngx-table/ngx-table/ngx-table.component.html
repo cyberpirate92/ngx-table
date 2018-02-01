@@ -45,7 +45,7 @@
 <ng-template #noRowsTemplate>
     <tr>
         <td>
-            No Records
+            {{ noRecordsText ? noRecordsText : 'No Records' }}
         </td>
     </tr>
 </ng-template>

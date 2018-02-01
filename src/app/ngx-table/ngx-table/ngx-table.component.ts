@@ -18,6 +18,7 @@ export class NgxTableComponent implements AfterContentInit {
 
     Object = Object;
     @Input('data') data: any[] = undefined;
+    @Input('noRecords') noRecordsText: string = undefined;
     @Output('rowClick') onRowClick: EventEmitter<RowClickEvent> = new EventEmitter<RowClickEvent>();
     @ContentChildren(NgxTableColumnComponent) columns: NgxTableColumnComponent[] = undefined;
 
