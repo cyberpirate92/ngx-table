@@ -1,16 +1,16 @@
 <ng-content>
 </ng-content>
 <ng-container *ngIf="data">
-    <table class="table table-bordered" *ngIf="columns?.length > 0; else defaultTable">
+    <table class="table table-bordered table-hover" *ngIf="columns?.length > 0; else defaultTable">
         <ng-container *ngIf="columns">
-            <thead class='thead-dark'>
+            <thead class='thead-light'>
                 <tr>
                     <th *ngFor="let column of columns">
                         {{column.title && column.title.length > 0 ? column.title : column.field }}
                     </th>
                 </tr>
             </thead>
-            <tbody class="table-hover">
+            <tbody>
                 <ng-container *ngIf="data.length > 0; else noRowsTemplate">
                     <tr *ngFor="let row of data; let i=index">
                         <td *ngFor="let column of columns">
@@ -23,15 +23,15 @@
     </table>
 </ng-container>
 <ng-template #defaultTable>
-    <table *ngIf="data.length>0" class="table table-bordered">
-        <thead class="thead-dark">
+    <table *ngIf="data.length>0" class="table table-bordered table-hover">
+        <thead class="thead-light">
             <tr>
                 <th *ngFor="let key of Object.keys(data[0])">
                     {{key}}
                 </th>
             </tr>
         </thead>
-        <tbody class="table-hover">
+        <tbody>
             <ng-container>
                 <tr *ngFor="let row of data; let i=index">
                     <td *ngFor="let key of Object.keys(row)">
