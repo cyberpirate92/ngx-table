@@ -1,27 +1,73 @@
 # NgxTable
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+A lightweight angular table component.
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Import `NgxTableModule`
 
-## Code scaffolding
+**app.module.ts**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```typescript
+import { NgxTableModule } from './ngx-table.module';
+```
 
-## Build
+**app.component.ts**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```typescript
+export class AppComponent {
+    public sampleData: any[] = [
+      {
+        "id": "59761c23b30d971669fb42ff",
+        "age": 36,
+        "name": "Dunlap Hubbard",
+        "gender": "male",
+        "company": "CEDWARD",
+        "email": "dunlaphubbard@cedward.com",
+        "phone": "+1 (890) 543-2508",
+        "address": "169 Rutledge Street, Konterra, Northern Mariana Islands, 8551"
+      },
+      {
+        "id": "59761c233d8d0f92a6b0570d",
+        "age": 24,
+        "name": "Kirsten Sellers",
+        "gender": "female",
+        "company": "EMERGENT",
+        "email": "kirstensellers@emergent.com",
+        "phone": "+1 (831) 564-2190",
+        "address": "886 Gallatin Place, Fannett, Arkansas, 4656"
+      },
+      {
+        "id": "59761c23fcb6254b1a06dad5",
+        "age": 30,
+        "name": "Acosta Robbins",
+        "gender": "male",
+        "company": "ORGANICA",
+        "email": "acostarobbins@organica.com",
+        "phone": "+1 (882) 441-3367",
+        "address": "697 Linden Boulevard, Sattley, Idaho, 1035"
+      }
+    ]
+}
+```
 
-## Running unit tests
+**app.component.html**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```html
+<ngx-table [data]="sampleData">
+    <ngx-table-column field="name" title="Name">
+    </ngx-table-column>
+    <ngx-table-column field="gender" title="Gender">
+    </ngx-table-column>
+    <ngx-table-column field="company" title="Company">
+    </ngx-table-column>
+</ngx-table>
+```
 
-## Running end-to-end tests
+Use the `data` input property of `ngx-table` to provide the object array which is to be rendered as a table.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The `ngx-table-column` component can be used to specify the order of columns to be displayed, only the columns specified will be rendered.
 
-## Further help
+`field` is the object property that should be displayed in that column, `title` is optional and can be used to specify an alternate column name. If `title` is not provided, the column name will be the value of `field`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+If no `ngx-table-column` components are specified, all the fields in the data will be rendered as columns.
