@@ -1,0 +1,33 @@
+pre {
+  overflow: scroll;
+  width: 75%;
+  height: 350px;
+  border: 1px solid black;
+  background: #DDD;
+  margin-left: 10%;
+}
+
+#sidebar.affix-top {
+  position: static;
+  width: 200px;
+}
+
+#sidebar.affix {
+  position: fixed;
+  top: 55px;
+  width: 200px;
+  height: 100%;
+  z-index: 99;
+}
+
+#sidebar a {
+    color: #DDD;
+}
+
+nav {
+    background: #333;
+    color: #DDD;
+    position: fixed;
+    width:100%;
+    z-index: 99;
+}

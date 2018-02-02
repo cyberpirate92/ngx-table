@@ -1,18 +1,85 @@
-<div class="container-fluid">
-    <div class="col-sm-12 p-2" *ngIf="lastSelected">
-        Last selected: {{ lastSelected.name }}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <span class="navbar-brand">NgxTable</span>
     </div>
-    <div class="col-sm-12">
-        <ngx-table 
-            [data]="data.clients" 
-            noRecords="No data present :)" 
-            (rowClick)="onRowClick($event)">
-            <ngx-table-column field="name" title="Name">
-            </ngx-table-column>
-            <ngx-table-column field="gender" title="Gender">
-            </ngx-table-column>
-            <ngx-table-column field="company" title="Company">
-            </ngx-table-column>
-        </ngx-table>
+</nav>
+<div class="container-fluid" style="background:#333">
+    <div class="row p-0">
+        <div class="col-sm-2">
+            <div class="affix affix-top p-0" id="sidebar">
+                <ul style="list-style: none">
+                    <li>
+                        <a href="#simpleDataset">Simple Dataset</a>
+                    </li>
+                    <li>
+                        <a href="#nestedDataset">Nested Dataset</a>
+                    </li>
+                    <li>
+                        <a href="#smallDataset">Small Dataset</a>
+                    </li>
+                    <li>
+                        <a href="#bigDataset">Big Dataset</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-10" style="background:#FFF">
+            <div class="row p-3 mt-3" id="simpleDataset">
+                <div class="col-sm-12 p-3">
+                    <span class='display-4'> Simple Dataset </span>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <pre class="align-center">
+                    <code>{{ SIMPLE_DATASET | json }}</code>
+                </pre>
+                </div>
+                <div class="col-sm-12 p-3" *ngIf="lastSelected">
+                    Last selected: {{ lastSelected.name }}
+                </div>
+                <div class="col-sm-12 p-3">
+                    <ngx-table [data]="SIMPLE_DATASET" noRecords="No data present :)" (rowClick)="onRowClick($event)">
+                    </ngx-table>
+                </div>
+            </div>
+            <div class="row p-3 mt-3" id="nestedDataset">
+                <div class="col-sm-12 p-3">
+                    <span class="display-4">Nested Dataset</span>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <pre>
+                    <code>{{ NESTED_DATASET | json }}</code>
+                </pre>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <ngx-table [data]="NESTED_DATASET"></ngx-table>
+                </div>
+            </div>
+            <div class="row p-3 mt-3" id="smallDataset">
+                <div class="col-sm-12 p-3">
+                    <span class="display-4">Small Dataset</span>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <pre>
+                    <code>{{ SMALL_DATASET | json }}</code>
+                </pre>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <ngx-table [data]="SMALL_DATASET"></ngx-table>
+                </div>
+            </div>
+            <div class="row p-3 mt-3" id="bigDataset">
+                <div class="col-sm-12 p-3">
+                    <span class="display-4">Big Dataset</span>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <pre>
+                    <code>{{ BIG_DATASET | json }}</code>
+                </pre>
+                </div>
+                <div class="col-sm-12 p-3">
+                    <ngx-table [data]="BIG_DATASET"></ngx-table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
