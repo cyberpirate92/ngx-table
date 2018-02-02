@@ -1,47 +1,21 @@
 <ng-content>
 </ng-content>
-<ng-container *ngIf="data">
-    <table class="table table-bordered table-hover" *ngIf="columns?.length > 0; else defaultTable">
-        <ng-container *ngIf="columns">
-            <thead class='thead-light'>
-                <tr>
-                    <th *ngFor="let column of columns">
-                        {{column.title && column.title.length > 0 ? column.title : column.field }}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngIf="data.length > 0; else noRowsTemplate">
-                    <tr *ngFor="let row of data; let rowIndex=index" (click)="onRowClicked($event, rowIndex)">
-                        <td *ngFor="let column of columns">
-                            {{ row[column.field] }}
-                        </td>
-                    </tr>
+<table *ngIf="data" class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th *ngFor="let columnName of _columnNames">{{columnName}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="data.length > 0; else noRowsTemplate">
+            <tr *ngFor="let row of data; let i = index">
+                <ng-container *ngFor="let columnName of _columnNames">
+                    <td *ngIf="_rowData[columnName][i] !== null">{{ _rowData[columnName][i] }}</td>
                 </ng-container>
-            </tbody>
-        </ng-container>
-    </table>
-</ng-container>
-<ng-template #defaultTable>
-    <table *ngIf="data.length>0" class="table table-bordered table-hover">
-        <thead class="thead-light">
-            <tr>
-                <th *ngFor="let key of Object.keys(data[0])">
-                    {{key}}
-                </th>
             </tr>
-        </thead>
-        <tbody>
-            <ng-container>
-                <tr *ngFor="let row of data; let rowIndex=index" (click)="onRowClicked($event, rowIndex)">
-                    <td *ngFor="let key of Object.keys(row)">
-                        {{row[key]}}
-                    </td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
-</ng-template>
+        </ng-container>
+    </tbody>
+</table>
 <ng-template #noRowsTemplate>
     <tr>
         <td>
